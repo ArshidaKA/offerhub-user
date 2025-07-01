@@ -1,0 +1,145 @@
+.confirmation-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.confirmation-modal {
+  background-color: white;
+  border-radius: 8px;
+  padding: 24px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+  animation: slideIn 0.3s ease-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  .close-button {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 4px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+  }
+
+  .modal-content {
+    text-align: center;
+
+    .modal-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+
+      &.warning {
+        color: #ff9800;
+      }
+      &.danger {
+        color: #f44336;
+      }
+      &.info {
+        color: #2196f3;
+      }
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      color: #333;
+      font-size: 1.25rem;
+    }
+
+    p {
+      color: #666;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+
+      button {
+        padding: 10px 24px;
+        border-radius: 6px;
+        font-weight: 500;
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+
+        &.cancel-button {
+          background-color: #f5f5f5;
+          color: #666;
+
+          &:hover {
+            background-color: #eee;
+          }
+        }
+
+        &.confirm-button {
+          color: white;
+
+          &.warning {
+            background-color: #ff9800;
+            &:hover {
+              background-color: #f57c00;
+            }
+          }
+
+          &.danger {
+            background-color: #f44336;
+            &:hover {
+              background-color: #d32f2f;
+            }
+          }
+
+          &.info {
+            background-color: #2196f3;
+            &:hover {
+              background-color: #1976d2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

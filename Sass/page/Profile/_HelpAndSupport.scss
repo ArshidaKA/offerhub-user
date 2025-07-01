@@ -1,0 +1,82 @@
+@use "../../abstract/variables" as var;
+@use "sass:color";
+.help-support-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 2rem;
+
+  .support-content {
+    text-align: center;
+    max-width: 600px;
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+
+      &:last-of-type {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    p {
+      color: #666;
+      font-size: 0.95rem;
+      margin: 0;
+      line-height: 1.6;
+
+      &:last-of-type {
+        margin-bottom: 2rem;
+      }
+    }
+
+    .whatsapp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 2rem;
+      background: var.$color-primary;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+
+      svg {
+        font-size: 1.25rem;
+      }
+
+      &:hover {
+        background: color.scale(var.$color-primary, $lightness: 10%);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .help-support-section {
+    padding: 1.5rem;
+    min-height: 300px;
+
+    .support-content {
+      h2 {
+        font-size: 1.1rem;
+      }
+
+      p {
+        font-size: 0.875rem;
+      }
+
+      .whatsapp-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+      }
+    }
+  }
+}

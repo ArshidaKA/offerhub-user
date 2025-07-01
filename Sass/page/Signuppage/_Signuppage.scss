@@ -1,0 +1,225 @@
+@use "../../abstract/variables" as var;
+
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+
+  .signup-card {
+    background: white;
+    padding: 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var.$color-primary;
+      margin: 0 0 8px 0;
+    }
+
+    .signup-subtitle {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+
+      input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        color: #333;
+
+        &::placeholder {
+          color: #999;
+        }
+
+        &:focus {
+          outline: none;
+          border-color: #666;
+        }
+      }
+
+      &.phone-input {
+        display: flex;
+        gap: 8px;
+
+        .country-code {
+          width: 80px;
+          padding: 12px;
+          border: 1px solid #ddd;
+          border-radius: 4px;
+          font-size: 14px;
+          color: #333;
+          background-color: white;
+          cursor: pointer;
+
+          &:focus {
+            outline: none;
+            border-color: #666;
+          }
+        }
+
+        input {
+          flex: 1;
+        }
+      }
+    }
+
+    .signup-button {
+      width: 100%;
+      padding: 12px;
+      background-color: var.$color-primary;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 16px;
+
+      &:hover {
+        background-color: var.$color-primary;
+      }
+    }
+    .error-message {
+      color: #ff3333;
+      font-size: 0.8rem;
+      margin-top: 4px;
+      margin-left: 4px;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .terms-text {
+      text-align: center;
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 24px;
+
+      a {
+        color: #666;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .password-input {
+      position: relative;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #666;
+    }
+
+    .password-input input {
+      padding-right: 35px;
+    }
+
+    @media screen and (max-width: 480px) {
+      .signup-container {
+        padding: 16px;
+      }
+      .password-input input {
+        padding-right: 25px;
+      }
+      .password-toggle {
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #666;
+        margin-bottom: 10px;
+      }
+    }
+
+    .login-link {
+      text-align: center;
+      border-top: 1px solid #eee;
+      padding-top: 24px;
+
+      p {
+        color: #666;
+        font-size: 14px;
+        margin: 0 0 16px 0;
+      }
+
+      .login-button {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background-color: white;
+        color: #2874f0;
+        border: 1px solid #2874f0;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: #fff5e6;
+        }
+      }
+    }
+  }
+}
+
+// Required field indicator
+input[required]::placeholder {
+  &::after {
+    content: " *";
+    color: #2874f0;
+  }
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #666;
+}
+
+.separator:not(:empty)::before {
+  margin-right: 0.25em;
+}
+
+.separator:not(:empty)::after {
+  margin-left: 0.25em;
+}
+
+// Responsive adjustments
+@media (max-width: 480px) {
+  .signup-container {
+    padding: 16px;
+
+    .signup-card {
+      padding: 24px;
+    }
+  }
+}

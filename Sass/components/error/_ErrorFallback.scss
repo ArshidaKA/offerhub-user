@@ -1,0 +1,143 @@
+@use "../../abstract/variables" as var;
+
+.error-container {
+  min-height: calc(100vh - var.$header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #f8f8f8;
+
+  .error-content {
+    text-align: center;
+    max-width: 500px;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+
+    .error-icon {
+      font-size: 4rem;
+      color: var.$color-primary;
+      margin-bottom: 1.5rem;
+      animation: pulse 2s infinite;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: #333;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .error-message {
+      color: #666;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: #f8f8f8;
+      border-radius: 8px;
+      font-family: monospace;
+      word-break: break-word;
+      line-height: 1.5;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+
+      button,
+      a {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 4px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 0.875rem;
+
+        svg {
+          font-size: 1.2rem;
+        }
+      }
+
+      .refresh-btn {
+        background: var.$color-primary;
+        color: white;
+        border: none;
+
+        &:hover {
+          background: darken(var.$color-primary, 5%);
+          transform: translateY(-1px);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+
+      .home-btn {
+        background: white;
+        color: var.$color-primary;
+        border: 1px solid var.$color-primary;
+        text-decoration: none;
+
+        &:hover {
+          background: rgba(var.$color-primary, 0.04);
+          transform: translateY(-1px);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    .error-content {
+      padding: 1.5rem;
+      margin: 0 1rem;
+      width: 100%;
+
+      .error-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 1.25rem;
+      }
+
+      .error-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+
+        button,
+        a {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
+  }
+}

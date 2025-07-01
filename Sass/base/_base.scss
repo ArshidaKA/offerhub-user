@@ -1,0 +1,67 @@
+@use "../abstract/variables" as variables;
+@use "../base/responive" as responsive;
+@use "../abstract/mixins" as mixins;
+
+:root {
+  font-size: 16px;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+
+// Separate rule for hiding scrollbars
+*:not(.coupon-list, .clearance-products) {
+  @include mixins.removeScrollbar;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  padding: 2rem;
+}
+
+.container {
+  width: 80%;
+  max-width: 1800px;
+  margin: 0 auto;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+// For input fields and selectable text, add this to allow selection
+input,
+textarea,
+select {
+  -webkit-user-select: text;
+  user-select: text;
+}

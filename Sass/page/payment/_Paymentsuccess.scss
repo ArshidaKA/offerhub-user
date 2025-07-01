@@ -1,0 +1,53 @@
+@use "../../abstract/variables" as var;
+
+.payment-success-container {
+  text-align: center;
+  padding: 50px;
+  font-family: Arial, sans-serif;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-success-icon {
+  margin-bottom: 20px;
+}
+
+.payment-success-h2 {
+  color: var.$color-primary;
+  margin-bottom: 10px;
+}
+
+.payment-success-p {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.payment-success-span {
+  font-weight: bold;
+}
+
+.payment-success-buttons {
+  margin-top: 20px;
+}
+
+.payment-success-button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.payment-success-view-orders {
+  background-color: #fff;
+  color: var.$color-primary;
+  border: 2px solid var.$color-primary;
+}
+
+.payment-success-continue-shopping {
+  background-color: var.$color-primary;
+  color: #fff;
+}

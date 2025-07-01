@@ -1,0 +1,209 @@
+@use "../../abstract/variables" as var;
+@use "../../base/responive" as responsive;
+
+.offer-container {
+  margin-top: 2rem;
+  height: 30rem;
+  opacity: 1;
+
+  .offer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    background: linear-gradient(135deg, var.$color-primary 0%, #ffaa33 100%);
+    overflow: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+    transform: translateX(0);
+    height: 30rem;
+
+    &.slide-enter {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    &.slide-exit {
+      opacity: 0.5;
+      transform: translateX(-50px);
+    }
+
+    .offer-text {
+      padding: 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 600;
+        color: var.$color-white;
+        margin-bottom: 0.5rem;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var.$color-white;
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -4px;
+          left: 0;
+          width: 60%;
+          height: 2px;
+          background-color: var.$color-white;
+        }
+      }
+
+      p {
+        color: var.$color-white;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        max-width: 90%;
+
+        .read-more {
+          color: var.$color-white;
+          cursor: pointer;
+          font-weight: 500;
+          margin-left: 4px;
+          text-decoration: underline;
+        }
+      }
+
+      .offer-tags {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+
+        span {
+          border-radius: 4px;
+          font-size: 0.875rem;
+          font-weight: 500;
+
+          &.discount {
+            color: var.$color-white;
+          }
+
+          &.limited {
+            color: var.$color-white;
+          }
+        }
+      }
+
+      .explore-btn {
+        align-self: flex-start;
+        padding: 0.75rem 2rem;
+        background-color: var.$color-white;
+        color: var.$color-primary;
+        border: none;
+        border-radius: 4px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: var.$color-white;
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+    .offer-image {
+      height: 100%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        object-position: center;
+      }
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+
+    .offer-content {
+      grid-template-columns: 1fr;
+      height: auto;
+
+      .offer-text {
+        padding: 2rem;
+
+        h2 {
+          font-size: 2rem;
+          @media (max-width: 768px) {
+            font-size: 1.5rem;
+          }
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          @media (max-width: 768px) {
+            font-size: 1rem;
+          }
+        }
+
+        p {
+          max-width: 100%;
+        }
+
+        .offer-tags {
+          flex-direction: column;
+
+          span {
+            text-align: lef;
+          }
+        }
+
+        .explore-btn {
+          width: 100%;
+        }
+      }
+
+      .offer-image {
+        order: -1;
+        height: 200px;
+      }
+    }
+  }
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0.5;
+    transform: translateX(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Add styles for the slider dots
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(var.$color-primary, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &.active {
+      background-color: var.$color-primary;
+      transform: scale(1.2);
+    }
+  }
+}
