@@ -1450,7 +1450,7 @@ ul {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  background: linear-gradient(135deg, #2874f0 0%, #ffaa33 100%);
+  background: #2874f0;
   overflow: hidden;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   opacity: 1;

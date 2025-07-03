@@ -219,7 +219,7 @@ function Footer() {
               <li>Calicut - Kerala 673032</li>*/}
               <li>
                 <a
-                  href="mailto:tradelinesmillstore1990@gmail.com"
+                  href="mailto:offerhub@gmail.com"
                   className="footer-email"
                 >
                   <MdEmail className="contact-icon" />
