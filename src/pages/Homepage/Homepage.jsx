@@ -26,8 +26,9 @@ function Homepage() {
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         <Category />
         <Clearance />
-        <TrendingCollection />
         <Bestseller />
+                <TrendingCollection />
+
         <Offer />
       </div>
     </div>

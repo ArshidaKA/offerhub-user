@@ -329,7 +329,7 @@ export default function Header() {
           <div className="mobile-search-container">
             <input
               type="text"
-              placeholder="What are you looking for?"
+              placeholder="search products....."
               className="mobile-search-input"
               value={searchQuery}
               onChange={handleMobileSearchInputChange}
