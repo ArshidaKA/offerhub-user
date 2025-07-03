@@ -10,14 +10,14 @@ export const useLogin = () => {
   const dispatch = useDispatch();
   return useMutation({
     mutationFn: ({ email, password }) => authService.login(email, password),
-    onSuccess: (data) => {
-      localStorage.setItem("user-auth-token", data.token);
-      dispatch(setUser(data.user));
-      dispatch(setIsLoggedIn(true));
+   onSuccess: (data) => {
+  localStorage.setItem("user-auth-token", data.token);
+  dispatch(setUser(data.user));
+  dispatch(setIsLoggedIn(true));
 
-      // Handle redirect after login using utility function
-      handleRedirectAfterLogin(navigate);
-    },
+  handleRedirectAfterLogin(navigate); // <-- THIS triggers the redirect
+},
+
     onError: (error) => {
       toast.error(error.response?.data?.message || "Failed to login");
     },

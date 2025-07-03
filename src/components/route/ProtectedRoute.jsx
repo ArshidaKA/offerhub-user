@@ -10,20 +10,19 @@ function ProtectedRoute({ children }) {
 
   const { data, isLoading, error } = useCheckAuth();
 
-  useEffect(() => {
-    const token = localStorage.getItem("user-auth-token");
-    console.log("ProtectedRoute - Token check:", { token, path: location.pathname + location.search });
-    
-    if (!token || token === "undefined" || token === null || token === "") {
-      const redirectPath = location.pathname + location.search;
-      
-      // Use utility function to store path
-      const stored = storeRedirectPath(redirectPath);
-      console.log("Path storage result:", stored);
-      
+ useEffect(() => {
+  const token = localStorage.getItem("user-auth-token");
+  const currentPath = location.pathname + location.search;
+
+  if (!token || token === "undefined" || token === null || token === "") {
+    const didStore = storeRedirectPath(currentPath);
+    console.log("Redirect path stored?", didStore);
+
+    if (location.pathname !== "/login") {
       navigate("/login");
     }
-  }, [navigate, location]);
+  }
+}, [navigate, location]);
 
   if (isLoading) {
     return <LoadingSpinner />;
