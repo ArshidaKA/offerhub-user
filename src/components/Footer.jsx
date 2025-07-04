@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FaTwitter, FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
-import Logo from "../../public/logo/offrhubLogo.png";
+import Logo from "../../public/logo/OfferHub.png";
 import { useCategories } from "../hooks/queries/categories";
 import { setCategory } from "../redux/features/category/categorySlice";
 import { useDispatch } from "react-redux";
@@ -163,7 +163,7 @@ function Footer() {
       <div className="footer-main" style={{}}>
         {/* Brand Section */}
         <div className="footer-brand">
-          <img src={Logo} alt="Mill Store Logo" />
+          <img src={Logo} alt="offer hub Logo" />
         </div>
 
         <div className="footer-links-group">
@@ -219,11 +219,12 @@ function Footer() {
               <li>Calicut - Kerala 673032</li>*/}
               <li>
                 <a
-                  href="mailto:offerhub@gmail.com"
+                  href="mailto:                offerhub3110@gmail.com
+"
                   className="footer-email"
                 >
                   <MdEmail className="contact-icon" />
-                 offerhub@gmail.com
+                offerhub3110@gmail.com
                 </a>
               </li>
               <li>

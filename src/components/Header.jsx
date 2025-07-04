@@ -177,7 +177,7 @@ export default function Header() {
           <Link to="/">
             <div className="header-logo">
               <img
-                src={"/logo/offrhubLogo.png"}
+                src={"/logo/OfferHub.png"}
                 alt="logo"
                 className="header-logo-img"
               />
@@ -249,7 +249,7 @@ export default function Header() {
                   onClick={() => handleMenuItemClick("profile")}
                 >
                   <div className="user-avatar">
-                    <img src="/images/user/profilepicture.jpg" alt="User" />
+                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="User" />
                   </div>
                   <div className="user-info">
                     <h4>{user?.username}</h4>
@@ -405,7 +405,7 @@ export default function Header() {
                 setIsMobileCatOpen(false)
               }}>
                 <div className="mobile-user-avatar">
-                  <img src="/images/user/profilepicture.jpg" alt="User" />
+                  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" alt="User" />
                 </div>
                 <div className="mobile-user-details">
                   <h4>{user?.username}</h4>

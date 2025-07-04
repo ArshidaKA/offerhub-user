@@ -93,16 +93,11 @@ const AddressModal = ({ isOpen, onClose, mode = "cart", cartItems = [], totalAmo
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (
-      formData.building === "" ||
-      formData.street === "" ||
-      formData.city === "" ||
-      formData.state === "" ||
-      formData.pincode === ""
-    ) {
-      toast.warning("Please fill all the fields");
-      return;
-    }
+     const error = isValidAddress(formData);
+  if (error) {
+    toast.warning(error);
+    return;
+  }
 
     const updatedUser = {
       ...user,
@@ -194,6 +189,20 @@ const AddressModal = ({ isOpen, onClose, mode = "cart", cartItems = [], totalAmo
     }
   };
 
+
+  const isValidAddress = (address) => {
+  const { fullName, building, street, city, state, pincode } = address;
+  
+  if (!fullName || fullName.trim().length < 2) return "Full Name is required";
+  if (!building || building.trim().length < 3) return "Building is required";
+  if (!street || street.trim().length < 3) return "Street is required";
+  if (!city || city.trim().length < 2) return "City is required";
+  if (!state || state.trim().length < 2) return "State is required";
+  if (!pincode || !/^\d{6}$/.test(pincode)) return "Pincode must be a 6-digit number";
+
+  return null;
+};
+
   const handleAddressSelection = () => {
   const { fullName, building, street, landmark, city, state, pincode } = formData;
 
@@ -201,17 +210,17 @@ const AddressModal = ({ isOpen, onClose, mode = "cart", cartItems = [], totalAmo
     Object.keys(selectedAddress).length > 0 ||
     (fullName && building && street && city && state && pincode)
   ) {
-    const address = selectedAddress
-      ? savedAddresses.find((addr) => addr._id === selectedAddress)
-      : formData;
+   const address = Object.keys(selectedAddress).length > 0
+  ? selectedAddress
+  : formData;
+
 
     const addressText = `
-Name: ${address.fullName}
-Address: ${address.building ||""}, ${address.street}, ${address.landmark || ""}
-${address.city}, ${address.state} - ${address.pincode}
+Name: ${address?.fullName}
+Address: ${address?.building ||""}, ${address?.street}, ${address?.landmark || ""}
+${address?.city}, ${address?.state} - ${address?.pincode}
     `.trim();
 
-      const productUrl = window.location.href;
 
 
     const productLines = cartItems
@@ -226,7 +235,6 @@ ${address.city}, ${address.state} - ${address.pincode}
 📦 *Products*:
 ${productLines}
 
- ${productUrl}
 
 💰 *Total*: ₹${totalAmount}
 
@@ -234,7 +242,7 @@ ${productLines}
 ${addressText}
     `.trim();
 
-    const whatsappUrl = `https://wa.me/918590568213?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/+919567359906?text=${encodeURIComponent(message)}`;
     
     // ✅ Open WhatsApp
     window.open(whatsappUrl, "_blank");
@@ -320,9 +328,9 @@ ${addressText}
                         checked={selectedAddress === addr?._id}
                         onChange={() => {
                           if (selectedAddress === addr?._id) {
-                            setSelectedAddress("");
+                            setSelectedAddress({});
                           } else {
-                            setSelectedAddress(addr?._id);
+                            setSelectedAddress(addr);
                           }
                           resetForm();
                         }}

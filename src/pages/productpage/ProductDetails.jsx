@@ -117,14 +117,14 @@ function ProductDetailsContent() {
     ? `${product?.name} (${selectedVariant?.attributes?.title})`
     : product?.name;
 
-  const description = selectedVariant?.attributes?.description || product?.description;
+  // const description = selectedVariant?.attributes?.description || product?.description;
   const price = selectedVariant?.offerPrice || product?.offerPrice;
   const productUrl = window.location.href;
 
-  const message = `${baseMessage}*Name:* ${name}\n*Price:* ₹${price}\n*Description:* ${description}\n\n🔗 ${productUrl}`;
+  const message = `${baseMessage}*Name:* ${name}\n*Price:* ₹${price}\n\n🔗 ${productUrl}`;
 
-  const whatsappUrl = `https://wa.me/918590568213?text=${encodeURIComponent(message)}`;
-  window.open(whatsappUrl, "_blank");
+   const whatsappUrl = `https://wa.me/+919567359906?text=${encodeURIComponent(message)}`;
+          window.open(whatsappUrl, "_blank");
 };
 
 

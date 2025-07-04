@@ -2274,10 +2274,10 @@ ul {
   text-decoration: none;
 }
 .footer .footer-main .footer-section ul li a:hover {
-  color: #000;
+  color: #f3eded;
 }
 .footer .footer-main .footer-section ul li:hover {
-  color: #000;
+  color: #f7f3f3;
 }
 .footer .footer-bottom {
   margin: 0rem auto 0;
@@ -6066,16 +6066,16 @@ input[required]::placeholder::after {
 .submit-button {
   width: 100%;
   padding: 1rem;
-  background: #ffc107;
+  background: #2874f0;
   border: none;
   border-radius: 8px;
-  color: #000;
+  color: #faf5f5;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 .submit-button:hover {
-  background: #ffb300;
+  background: #1462df;
 }
 .submit-button:disabled {
   background: #ddd;
