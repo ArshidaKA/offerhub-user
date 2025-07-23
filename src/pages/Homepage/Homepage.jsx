@@ -9,6 +9,7 @@ import { useBanners } from "../../hooks/queries/Banner";
 import Category from "./components/Category";
 import { useCart } from "../../hooks/queries/cart";
 import TrendingCollection from "./components/Trendingcollection";
+import Fixedblock from "../../components/WhatsAppButton";
 function Homepage() {
   const { allBanners, isLoading } = useBanners();
   const { data: cartData, isLoading: isCartLoading } = useCart();
@@ -31,6 +32,7 @@ function Homepage() {
 
         <Offer />
       </div>
+      <Fixedblock/>
     </div>
   );
 }
