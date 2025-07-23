@@ -228,7 +228,7 @@ function Footer() {
                 </a>
               </li>
               <li>
-                <FaPhoneAlt className="contact-icon" /> 9567359906
+                <FaPhoneAlt className="contact-icon" /> 9567359906 ,0495-2519906
 
               </li>
             </ul>
